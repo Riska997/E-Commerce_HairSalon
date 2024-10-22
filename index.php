@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/draft.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -29,8 +29,10 @@
     <!-- NAVIGATION-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav" data-toggle="affix">
         <div class="container-fluid">
-            <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="images/logo.JPG"
-                    style="max-height: 60px;" alt="Eve and Steve Salon Logo" class="img-fluid">Eve And Steve Salon</a>
+            <a class="navbar-brand js-scroll-trigger" href="index.php"><img src="images/logo.JPG"
+                style="max-height: 60px;" alt="Eve and Steve Salon Logo" class="img-fluid">
+                <span class="site-name">EVE And Steve Salon</span>
+            </a>
             <button class="navbar-toggler navbar-toggler-center ml-auto py-3 my-2" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -79,7 +81,7 @@
                                 <h3>Relax, Refresh, Renew</h3>
                             </div>
                             <div class="home-btn wow fadeInUp" data-wow-delay="0.3s">
-                                <a class="js-scroll-trigger" href="pages/booking.php" role="button"
+                                <a class="js-scroll-trigger" href="customer/booking.php" role="button"
                                     title="View Our Work">
                                     <button class="btn btn-lg btn-general btn-greenish">Book Now</button>
                                 </a>
@@ -95,7 +97,7 @@
                                 <h3>Quality Service Awaits You</h3>
                             </div>
                             <div class="home-btn wow fadeInUp" data-wow-delay="0.3s">
-                                <a class="js-scroll-trigger" href="pages/booking.php" role="button"
+                                <a class="js-scroll-trigger" href="customer/booking.php" role="button"
                                     title="Book Your Appointment">
                                     <button class="btn btn-lg btn-general btn-greenish">Book Now</button>
                                 </a>
@@ -175,8 +177,10 @@
                 </div>
             </div>
         </div>
-        <h3><a href="pages/services.html">Learn More about Services Offered</a></h3>
     </div>
+    <h3 class="services-learn">
+        <a href="customer/services.html">Learn More about Services Offered</a>
+    </h3>
 </section>
 
 

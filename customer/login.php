@@ -1,6 +1,6 @@
 <?php
 
-include 'components/connect.php';
+include 'include/db.php';
 
 session_start();
 
@@ -49,30 +49,59 @@ if(isset($_POST['submit'])){
 </head>
 <body>
    
-<?php include 'components/user_header.php'; ?>
+
+    <!-- HEADER-->
+    <!-- NAVIGATION-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav" data-toggle="affix">
+        <div class="container-fluid">
+            <a class="navbar-brand js-scroll-trigger" href="index.php"><img src="images/logo.JPG"
+                style="max-height: 60px;" alt="Eve and Steve Salon Logo" class="img-fluid">
+                <span class="site-name">EVE And Steve Salon</span>
+            </a>
+            <button class="navbar-toggler navbar-toggler-center ml-auto py-3 my-2" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="customer/login.php">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>login now</h3>
+      <h3>LOGIN</h3>
       <input type="email" name="email" required placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="login now" class="btn" name="submit">
       <p>don't have an account?</p>
-      <a href="user_register.php" class="option-btn">register now</a>
+      <a href="user_register.php" class="option-btn">REGISTER</a>
    </form>
 
 </section>
-
-
-
-
-
-
-
-
-
-
 
 
 
