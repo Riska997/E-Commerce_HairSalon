@@ -1,41 +1,56 @@
-<footer class="footer">
-
-   <section class="grid">
-
-      <div class="box">
-         <h3>quick links</h3>
-         <a href="home.php"> <i class="fas fa-angle-right"></i> home</a>
-         <a href="about.php"> <i class="fas fa-angle-right"></i> about</a>
-         <a href="shop.php"> <i class="fas fa-angle-right"></i> shop</a>
-         <a href="contact.php"> <i class="fas fa-angle-right"></i> contact</a>
+<!-- FOOTER -->
+<footer>
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-5">
+            <p>&copy; <?php echo date("Y"); ?> Eve & Steve Salon. </p>
+            <p>All Rights Reserved.</p>
+            <address>
+               Westgate Mall, Morgenster Rd, Mitchell's Plain, 7785 | 021 376 5645
+            </address>
+            <a href="https://www.bing.com/maps?osid=7e46068f-78b9-4d12-8042-8d307bc0110e&cp=-34.040741~18.607997&lvl=15.24&pi=0&imgid=95b2b68f-59db-4909-92ed-cbb4d9584362&v=2&sV=2&form=S00027"
+               target="_blank" class="location-link">View Location on Map</a>
+            <ul class="list-inline social-buttons">
+               <li class="list-inline-item">
+                  <a href="https://www.facebook.com/pages/Salon%20Eve%20&%20Steve%20-%20Westgate%20Mall/323360621043360/" class="social-icon">
+                     <i class="fa fa-facebook"></i>
+                  </a>
+               </li>
+            </ul>
+         </div>
+         <div class="col-md-7 footer-right">
+            <div class="row">
+               <div class="col-md-6">
+                  <ul class="footer-navbar">
+                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#home">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="col-md-6">
+                  <ul class="footer-navbar">
+                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#testimonials">Testimonials</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="customer/login.php">Login</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
       </div>
-
-      <div class="box">
-         <h3>extra links</h3>
-         <a href="user_login.php"> <i class="fas fa-angle-right"></i> login</a>
-         <a href="user_register.php"> <i class="fas fa-angle-right"></i> register</a>
-         <a href="cart.php"> <i class="fas fa-angle-right"></i> cart</a>
-         <a href="orders.php"> <i class="fas fa-angle-right"></i> orders</a>
-      </div>
-
-      <div class="box">
-         <h3>contact us</h3>
-         <a href="tel:1234567890"><i class="fas fa-phone"></i> +123 456 7899</a>
-         <a href="tel:11122233333"><i class="fas fa-phone"></i> +111 222 3333</a>
-         <a href="mailto:shaikh@gmail.com"><i class="fas fa-envelope"></i> shaikh@gmail.com</a>
-         <a href="https://www.google.com/myplace"><i class="fas fa-map-marker-alt"></i> mumbai, india - 400104 </a>
-      </div>
-
-      <div class="box">
-         <h3>follow us</h3>
-         <a href="#"><i class="fab fa-facebook-f"></i>facebook</a>
-         <a href="#"><i class="fab fa-twitter"></i>twitter</a>
-         <a href="#"><i class="fab fa-instagram"></i>instagram</a>
-         <a href="#"><i class="fab fa-linkedin"></i>linkedin</a>
-      </div>
-
-   </section>
-
-   <div class="credit">&copy; copyright @ <?= date('Y'); ?> by <span>mr. web designer</span> | all rights reserved!</div>
-
+   </div>
+   <button class="btn-back-to-top" onclick="scrollToTop()">
+      ↑
+   </button>
 </footer>

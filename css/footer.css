@@ -1,0 +1,75 @@
+/******************************************** Customer Header **********************************************************************/
+.dropdown-header {
+    display: block;
+    padding: 8px 24px;
+    margin-bottom: 0;
+    font-size: 14px; 
+    color: #918686;
+    white-space: nowrap; }
+
+/******************************************** Footer **********************************************************************/
+footer {
+    background-color: #4a0072;
+    color: white;
+    font-size:small;
+    font-weight: bolder;
+    padding: 10px 0; 
+}
+
+.location-link {
+    color: white; 
+    text-decoration: none; 
+    margin-right: 10px; 
+}
+
+/* Social buttons */
+.social-buttons .social-icon {
+    display: flex; 
+    margin-top: 10px;
+    justify-content: flex-start;
+    color: white; 
+    font-size: 20px; 
+}
+
+/* Footer navbar styles */
+.footer-navbar {
+    list-style-type: none;  
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+}
+
+.footer-navbar .nav-item {
+    margin: 5px 0; 
+}
+
+.footer-navbar .nav-link {
+    text-decoration: none; 
+    color: white; 
+}
+
+.footer-navbar .nav-link:hover {
+    text-decoration: underline; 
+}
+
+/* Back-to-top button */
+.btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+    font-size: 22px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #ffff; 
+    color: #4a0072;
+    border-radius: 5px; 
+    display: none; 
+    z-index: 1000; 
+}
+
+.btn-back-to-top:hover {
+    background: #595bd1;
+    color: #9112db; 
+}

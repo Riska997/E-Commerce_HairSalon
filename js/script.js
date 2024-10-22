@@ -90,20 +90,24 @@ $(function() {
     });
 });
 
+
 /*====================================================
-                        PORTFOLIO
+                    FOOTER
 ====================================================*/
-  $(function() {
-
-      $("#portfolio").magnificPopup({
-          delegate: 'a', // child items selector, by clicking on it popup will open
-          type: 'image',
-          gallery: {
-              enabled: true
-          }
-
-      });
-  });
+/* Show button when scrolling down */
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
+ 
+ /* Smooth scrolling */
+window.onscroll = function() {
+    var button = document.querySelector('.btn-back-to-top');
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        button.style.display = 'block';
+    } else {
+        button.style.display = 'none';
+    }
+};
 
 /* ====================================================
                        BACK TO TOP

@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="en-ZA">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Eve And Steve Salon</title>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--Fonts-->
+    <title>Eve And Steve Salon</title>
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
-    <!--CSS-->
-    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
+
 
 <body>
 
     <div class="loader"></div>
+
+    <!-- HEADER-->
     <!-- NAVIGATION-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav" data-toggle="affix">
         <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="images/logo.JPG"
-                    style="max-height: 60px;" alt="" class="img-fluid">Eve And Steve Salon</a>
-            <button class="navbar-toggler navbar-toggler-center  ml-auto py-3 my-2 " type="button"
-                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
+                    style="max-height: 60px;" alt="Eve and Steve Salon Logo" class="img-fluid">Eve And Steve Salon</a>
+            <button class="navbar-toggler navbar-toggler-center ml-auto py-3 my-2" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
@@ -50,14 +55,15 @@
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="pages/login.php">Login</a>
+                        <a class="nav-link js-scroll-trigger" href="customer/login.php">Login</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER-->
+
+
     <header id="home">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -73,9 +79,26 @@
                                 <h3>Relax, Refresh, Renew</h3>
                             </div>
                             <div class="home-btn wow fadeInUp" data-wow-delay="0.3s">
-                                <a class=" js-scroll-trigger" href="pages/booking.php" role="button"
-                                    title="View Our Work"><button class="btn btn-lg btn-general btn-greenish ">Book
-                                        Now</button></a>
+                                <a class="js-scroll-trigger" href="pages/booking.php" role="button"
+                                    title="View Our Work">
+                                    <button class="btn btn-lg btn-general btn-greenish">Book Now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item second-slide">
+                    <div class="home-content-box">
+                        <div class="home-content-box-inner text-center">
+                            <div class="home-heading animated fadeInDown">
+                                <h3>Experience the Best in Beauty</h3>
+                                <h3>Quality Service Awaits You</h3>
+                            </div>
+                            <div class="home-btn wow fadeInUp" data-wow-delay="0.3s">
+                                <a class="js-scroll-trigger" href="pages/booking.php" role="button"
+                                    title="Book Your Appointment">
+                                    <button class="btn btn-lg btn-general btn-greenish">Book Now</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -85,77 +108,77 @@
     </header>
 
 
-    <!-- SERVICES-->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-md-12 text-center mb-5">
-                    <div class="heading wow fadeInUp" data-wow-delay="0.3s">
-                        <h1>Services</h1>
-                        <div class="bord-bot"></div>
+<!-- SERVICES -->
+<section id="services" class="services">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12 text-center mb-5">
+                <div class="heading wow fadeInUp" data-wow-delay="0.3s">
+                    <h1>Services</h1>
+                    <div class="bord-bot"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4 col-sm-6">
+                <div class="service-cont wow fadeInUp" data-wow-delay="0.3s">
+                    <img src="images/HAIRCUTS.jpeg" alt="" class="img-fluid">
+                    <div class="service-desc">
+                        <h2>Haircuts and Styling</h2>
+                        <p>Haircuts and styling for men, women, and children.</p>
                     </div>
                 </div>
             </div>
-            <div class="row text-center">
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-cont wow fadeInUp" data-wow-delay="0.3s">
-                        <img src="images/HAIRCUTS.jpeg" alt="" class="img-fluid">
-                        <div class="service-desc">
-                            <h2>Haircuts and Styling</h2>
-                            <p>Haircuts and styling for men, women, and children.</p>
-                        </div>
-
+            <div class="col-md-4 col-sm-6">
+                <div class="service-cont wow fadeInUp" data-wow-delay="0.6s">
+                    <img src="images/Hair Coloring.jpeg" alt="" class="img-fluid">
+                    <div class="service-desc">
+                        <h2>Hair Coloring</h2>
+                        <p>Highlights, lowlights, and color correction.</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-cont wow fadeInUp" data-wow-delay="0.6s">
-                        <img src="images/Hair Coloring.jpeg" alt="" class="img-fluid">
-                        <div class="service-desc">Hair Coloring<p>Highlights, lowlights, and color correction.</p>
-                        </div>
-
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="service-cont wow fadeInUp" data-wow-delay="0.9s">
+                    <img src="images/Hair Treatments.jpeg" alt="" class="img-fluid">
+                    <div class="service-desc">
+                        <h2>Hair Treatments</h2>
+                        <p>Deep conditioning and scalp treatments.</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-cont wow fadeInUp" data-wow-delay="0.9s">
-                        <img src="images/Hair Treatments.jpeg" alt="" class="img-fluid">
-                        <div class="service-desc">Hair Treatments <p>Deep conditioning and scalp treatments.</p>
-                        </div>
-
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="service-cont wow fadeInUp" data-wow-delay="0.9s">
+                    <img src="images/Hair Extensions.jpeg" alt="" class="img-fluid">
+                    <div class="service-desc">
+                        <h2>Hair Extensions</h2>
+                        <p>High-quality, non-chemically processed hair extensions.</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-cont wow fadeInUp" data-wow-delay="0.9s">
-                        <img src="images/Hair Extensions.jpeg" alt="" class="img-fluid">
-                        <div class="service-desc">Hair Extensions<p>High-quality, non-chemically processed hair
-                                extensions.</p>
-                        </div>
-
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="service-cont wow fadeInUp" data-wow-delay="0.9s">
+                    <img src="images/Braiding and Weaving.jpeg" alt="" class="img-fluid">
+                    <div class="service-desc">
+                        <h2>Braiding and Weaving</h2>
+                        <p>Various braiding styles and weaving techniques.</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-cont wow fadeInUp" data-wow-delay="0.9s">
-                        <img src="images/Braiding and Weaving.jpeg" alt="" class="img-fluid">
-                        <div class="service-desc">Braiding and Weavingp>Various braiding styles and weaving techniques.
-                            </p>
-                        </div>
-
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="service-cont wow fadeInUp" data-wow-delay="0.9s">
+                    <img src="images/Manicures and Pedicures.jpeg" alt="" class="img-fluid">
+                    <div class="service-desc">
+                        <h2>Manicures and Pedicures</h2>
+                        <p>Nail services including gel and acrylic nails.</p>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-cont wow fadeInUp" data-wow-delay="0.9s">
-                        <img src="images/Manicures and Pedicures.jpeg" alt="" class="img-fluid">
-                        <div class="service-desc">Manicures and Pedicures <p>Nail services including gel and acrylic
-                                nails.</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
         <h3><a href="pages/services.html">Learn More about Services Offered</a></h3>
-        </div>
-        </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- ABOUT-->
     <section id="about" class="about">
@@ -184,7 +207,7 @@
                 </div>
                 <div class="col-md-8 m-auto text-center">
                     <div class="body-img-1 wow fadeInUp" data-wow-delay="0.9s">
-                        <img src="images/equipment.jpg" alt="" class="img-fluid">
+                        <img src="images/equipment.jpg" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -316,39 +339,17 @@
 
         <!--BOOKING-->
         <section id="booking" class="booking">
-            <div class="container">
+            <div class="book-container">
                 <h2>Book Your Style</h2>
                 <p>Select your preferred date and services to experience a premium salon treatment.</p>
                 <p>Book now to secure your spot!</p>
-                <a href="pages/booking.php" class="btn btn-primary">Get Started</a>
-
+                <a href="customer/booking.php" class="img-fluid js-scroll-trigger"><button
+                        class="btn btn-general btn-white">Get Started</button></a>
             </div>
         </section>
 
-        <!-- FOOTER-->
-        <footer>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-5">
-                        <p>© 2024 by EVE & Steve Salon</p>
-                        <address> Westgate Mall, Morgenster Rd, Mitchell's Plain, 7785 | 021 376 5645</address>
-                        <a href="https://www.bing.com/maps?osid=7e46068f-78b9-4d12-8042-8d307bc0110e&cp=-34.040741~18.607997&lvl=15.24&pi=0&imgid=95b2b68f-59db-4909-92ed-cbb4d9584362&v=2&sV=2&form=S00027"
-                            target="_blank"> View Location on Map</a>
-                    </div>
-                    <div class="col-md-3">
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    </ul>
-                </div>
-            </div>
-            </div>
-        </footer>
+        <!-- Include the footer -->
+        <?php include 'components/footer.php'; ?>
 
         <a href="#page-top" id="back-to-top"
             class="btn btn-sm btn-green btn-back-to-top  js-scroll-trigger hidden-sm hidden-xs" title="home"
@@ -356,19 +357,20 @@
             <i class="fa fa-angle-double-up"></i>
         </a>
 
-    </section>
 
-    <!--JS-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jqBootstrapValidation.min.js"></script>
-    <script src="js/contact_me.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/script.js"></script>
+
+        <!--JS-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jqBootstrapValidation.min.js"></script>
+        <script src="js/contact_me.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/script.js"></script>
+
 </body>
 
 </html>

@@ -6,13 +6,14 @@ session_start();
 function db_connect() {
     // Define your connection parameters
     $host = 'localhost';   // Database host
-    $db   = 'your_db_name';  // Database name
-    $user = 'your_db_user';  // Database user
-    $pass = 'your_db_pass';  // Database password
+    $port  = '3306';   // Database port
+    $db   = 'salon_db';  // Database name
+    $user = 'root';  // Database user
+    $pass = '';  // Database password
     
     // Create a new PDO instance for MySQL connection
     try {
-        $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+        $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db", $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         return $pdo;
@@ -182,4 +183,3 @@ function user_logout() {
     header("Location: index.php");
     exit;
 }
-?>
