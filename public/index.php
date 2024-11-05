@@ -81,8 +81,7 @@
                                 <h3>Relax, Refresh, Renew</h3>
                             </div>
                             <div class="home-btn wow fadeInUp" data-wow-delay="0.3s">
-                                <a class="js-scroll-trigger" href="customer/booking.php" role="button"
-                                    title="View Our Work">
+                                <a class="js-scroll-trigger" href="../public/booking.php" role="button">
                                     <button class="btn btn-lg btn-general btn-greenish">Book Now</button>
                                 </a>
                             </div>
@@ -178,9 +177,7 @@
             </div>
         </div>
     </div>
-    <h3 class="services-learn">
-        <a href="customer/services.html">Learn More about Services Offered</a>
-    </h3>
+   
 </section>
 
 
@@ -347,13 +344,13 @@
                 <h2>Book Your Style</h2>
                 <p>Select your preferred date and services to experience a premium salon treatment.</p>
                 <p>Book now to secure your spot!</p>
-                <a href="customer/booking.php" class="img-fluid js-scroll-trigger"><button
+                <a href="../public/booking.php" class="img-fluid js-scroll-trigger"><button
                         class="btn btn-general btn-white">Get Started</button></a>
             </div>
         </section>
 
         <!-- Include the footer -->
-        <?php include 'components/footer.php'; ?>
+        <?php include '../src/inc/footer.php'; ?>
 
         <a href="#page-top" id="back-to-top"
             class="btn btn-sm btn-green btn-back-to-top  js-scroll-trigger hidden-sm hidden-xs" title="home"

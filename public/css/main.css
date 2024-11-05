@@ -206,7 +206,7 @@ body {
 }
 
 .site-name {
-  font-family: 'Cursive', 'Brush Script MT', cursive; /* Applies a cursive-like font */
+  font-family: 'Cursive', 'Brush Script MT', cursive; 
   font-size: 32px; 
   font-weight: 700; 
   color: #2e0242; 
@@ -442,6 +442,8 @@ header {
     font-size: 55px;
     margin: 20px 0;
   }
+
+  
   
 /*-------------------------------------------------------------------------------
 ------------------------MIXINS-------------------------------------------------*/
@@ -482,8 +484,7 @@ header {
   background-color: #111011;
   display: flex;                     
   flex-direction: column;   
-  align-items: center;         
-  /*justify-content: space-between; */   
+  align-items: center;          
   height: 100%; 
   width:250px;  
   margin-top: 50px;                 
@@ -663,3 +664,91 @@ header {
 
 }
 
+/*-------------------------------------------------------------------------------
+------------------------REGISTRATION and LOGIN---------------------------------*/
+
+body.register {
+  background-color: #f9f9f9; 
+  padding: 50px 20px;
+}
+
+h1 {
+  text-align: center; 
+  color: #0b0111; 
+  margin-bottom: 30px; 
+}
+
+/* Form container */
+form {
+  max-width: 400px; 
+  margin: 0 auto;
+  background: #ffffff; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  padding: 30px; 
+}
+
+/* Form elements styling */
+div {
+  margin-bottom: 15px; 
+}
+
+label {
+  display: block; 
+  margin-bottom: 5px; 
+  font-weight: 600; 
+  color:#0b0111; ; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  width: 100%; 
+  padding: 10px; 
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  transition: border-color 0.3s; 
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+  border-color: #4a0072; 
+  outline: none; 
+}
+
+/* Button styling */
+button[type="submit"] {
+  background-color: #4a0072; 
+  color: #ffffff; 
+  border: none; 
+  border-radius: 50px; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+  cursor: pointer; 
+  width: 100%; 
+  transition: background-color 0.3s; 
+}
+
+button[type="submit"]:hover {
+  background-color: #a75fbc; 
+}
+
+/* Link styling */
+p {
+  text-align: center; 
+  margin-top: 20px; 
+}
+
+a {
+  color: #4a0072; 
+}
+
+a:hover {
+  color: #a75fbc; 
+}

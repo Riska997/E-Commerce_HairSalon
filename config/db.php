@@ -1,12 +1,12 @@
 <?php
 // Start session
 if (session_status() === PHP_SESSION_NONE) {
-    session_start(); // Start the session if it hasn't started yet
+    session_start(); 
 }
 
 // Database connection function
 function db_connect() {
-    $host = '127.0.0.1'; // Using 127.0.0.1 instead of localhost for consistency
+    $host = '127.0.0.1'; 
     $port = '3306';
     $db = 'salon_db';
     $user = 'root';
@@ -22,10 +22,10 @@ function db_connect() {
     }
 }
 
-/* Sanitize user input
+// Sanitize user input
 function sanitize_input($data) {
     return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
-}*/
+}
 
 // Register user function
 function user_register($name, $email, $hashed_password) {
@@ -47,8 +47,6 @@ function user_register($name, $email, $hashed_password) {
 // Login user function
 function user_login($email, $password) {
     $pdo = db_connect();
-
-    // Check customers table
     $sql = "SELECT * FROM customers WHERE Email = :email";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':email', $email);
@@ -59,7 +57,7 @@ function user_login($email, $password) {
         $_SESSION['user_id'] = $user['CustomerID'];
         $_SESSION['user_email'] = $user['Email'];
         $_SESSION['user_role'] = 'customer';
-        $_SESSION['last_activity'] = time(); // Set session activity time
+        $_SESSION['last_activity'] = time(); 
         header("Location: customer_dashboard.php");
         exit;
     }
@@ -75,7 +73,7 @@ function user_login($email, $password) {
         $_SESSION['user_id'] = $admin['AdminID'];
         $_SESSION['user_email'] = $admin['Email'];
         $_SESSION['user_role'] = $admin['Role'];
-        $_SESSION['last_activity'] = time(); // Set session activity time
+        $_SESSION['last_activity'] = time(); 
         header("Location: admin_dashboard.php");
         exit;
     }
@@ -99,7 +97,7 @@ function check_session_expiry() {
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $session_lifetime)) {
         user_logout();
     } else {
-        $_SESSION['last_activity'] = time(); // Update last activity time
+        $_SESSION['last_activity'] = time(); 
     }
 }
 
@@ -116,7 +114,7 @@ function handle_file_upload($file) {
     if (!in_array($imageFileType, ['jpg', 'jpeg', 'png', 'gif'])) return "Error: Only JPG, JPEG, PNG & GIF files are allowed.";
 
     if (move_uploaded_file($file["tmp_name"], $target_file)) {
-        return $target_file; // Return relative path
+        return $target_file; 
     } else {
         return "Error uploading your file.";
     }
@@ -125,7 +123,7 @@ function handle_file_upload($file) {
 // Insert a new service into the database with image handling
 function insert_service($service_name, $service_desc, $service_price, $image_path) {
     $pdo = db_connect();
-    $sql = "INSERT INTO services (name, description, price, ImagePath) VALUES (:name, :description, :price, :image)";
+    $sql = "INSERT INTO services (Name, Description, Price, ImagePath) VALUES (:name, :description, :price, :image)";
 
     try {
         // Validate that service price is numeric
@@ -169,4 +167,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_service'])) {
         echo "Please complete all fields and upload a valid image. Error: " . $image_path;
     }
 }
-

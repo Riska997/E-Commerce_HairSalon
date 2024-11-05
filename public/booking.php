@@ -1,15 +1,13 @@
 <?php
-// Include database connection
-require 'db.php';
-
-session_start(); // Start session
+// Database connection
+require '../config/db.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['customer_id'])) {
     die("Please login to book an appointment.");
 }
 
-$services = []; // To store the available services from the database
+$services = []; 
 
 // Fetch available services from the database
 $stmt = $pdo->query("SELECT * FROM services");
@@ -27,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Insert booking into the appointments table
     $stmt = $pdo->prepare("INSERT INTO appointments (CustomerID, Date, Time) VALUES (?, ?, ?)");
     if ($stmt->execute([$customerID, $date, $time])) {
-        $appointmentID = $pdo->lastInsertId(); // Get the appointment ID of the inserted row
+        $appointmentID = $pdo->lastInsertId(); 
 
         // Link selected service to the appointment
         $stmt = $pdo->prepare("INSERT INTO appointment_service (AppointmentID, ServiceID) VALUES (?, ?)");

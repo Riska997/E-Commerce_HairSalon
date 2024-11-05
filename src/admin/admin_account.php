@@ -1,12 +1,11 @@
 <?php
-session_start();
-require '../config/db.php';
+require '../../config/db.php';
+
 
 $admin_id = $_SESSION['admin_id'] ?? null;
 
 if (!isset($admin_id)) {
-    // Redirect to the public login page if admin is not logged in
-    header('location:/public/login.php');
+    header('location: ../public/login.php');
     exit();
 }
 
@@ -41,7 +40,7 @@ if (isset($_GET['delete'])) {
 </head>
 <body>
 
-<?php include '../components/admin_header.php'; ?>
+<?php include '../inc/admin_header.php'; ?>
 
 <section class="accounts">
 
