@@ -1,149 +1,171 @@
 <?php
-
 include '../components/connect.php';
-
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
-
-if(!isset($admin_id)){
-   header('location:admin_login.php');
+// Check if the user is an admin
+if (!isset($_SESSION['admin_id'])) {
+    header('location:login.php');
+    exit;
 }
 
+// Fetch all appointments
+$appointments = [];
+$stmt = $pdo->query("SELECT a.AppointmentID, c.Name AS CustomerName, c.Email, s.Name AS ServiceName, a.Date, a.Time, a.Status 
+                     FROM appointments a
+                     JOIN customers c ON a.CustomerID = c.CustomerID
+                     JOIN appointment_service as aps ON a.AppointmentID = aps.AppointmentID
+                     JOIN services s ON aps.ServiceID = s.ServiceID");
+while ($appointment = $stmt->fetch()) {
+    $appointments[] = $appointment;
+}
+
+// Fetch all services for management
+$services = [];
+$serviceStmt = $pdo->query("SELECT * FROM services");
+while ($service = $serviceStmt->fetch()) {
+    $services[] = $service;
+}
+
+// Handle appointment status updates
+if (isset($_POST['update_status'])) {
+    $appointmentID = $_POST['appointment_id'];
+    $newStatus = $_POST['status'];
+
+    $stmt = $pdo->prepare("UPDATE appointments SET Status = ? WHERE AppointmentID = ?");
+    $stmt->execute([$newStatus, $appointmentID]);
+    header("Location: admin_dashboard.php"); // Redirect to refresh
+}
+
+// Handle service updates
+if (isset($_POST['manage_service'])) {
+    $serviceID = $_POST['service_id'];
+    $serviceName = $_POST['service_name'];
+    $servicePrice = $_POST['service_price'];
+    
+    if ($_POST['action'] === 'edit') {
+        // Update service
+        $stmt = $pdo->prepare("UPDATE services SET Name = ?, Price = ? WHERE ServiceID = ?");
+        $stmt->execute([$serviceName, $servicePrice, $serviceID]);
+    } elseif ($_POST['action'] === 'delete') {
+        // Delete service
+        $stmt = $pdo->prepare("DELETE FROM services WHERE ServiceID = ?");
+        $stmt->execute([$serviceID]);
+    }
+    header("Location: admin_dashboard.php"); // Redirect to refresh
+}
+
+// Adding a new service
+if (isset($_POST['add_service'])) {
+    $newServiceName = $_POST['new_service_name'];
+    $newServicePrice = $_POST['new_service_price'];
+
+    $stmt = $pdo->prepare("INSERT INTO services (Name, Price) VALUES (?, ?)");
+    $stmt->execute([$newServiceName, $newServicePrice]);
+    header("Location: admin_dashboard.php"); // Redirect to refresh
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>dashboard</title>
-
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <link rel="stylesheet" href="../css/admin_style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/admin_style.css">
 </head>
 <body>
 
 <?php include '../components/admin_header.php'; ?>
 
 <section class="dashboard">
+    <h1 class="heading">Admin Dashboard</h1>
 
-   <h1 class="heading">dashboard</h1>
+    <h2>Manage Appointments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($appointments as $appointment): ?>
+                <tr>
+                    <td><?php echo $appointment['AppointmentID']; ?></td>
+                    <td><?php echo $appointment['CustomerName']; ?></td>
+                    <td><?php echo $appointment['Email']; ?></td>
+                    <td><?php echo $appointment['ServiceName']; ?></td>
+                    <td><?php echo $appointment['Date']; ?></td>
+                    <td><?php echo $appointment['Time']; ?></td>
+                    <td><?php echo $appointment['Status']; ?></td>
+                    <td>
+                        <form method="POST" action="">
+                            <input type="hidden" name="appointment_id" value="<?php echo $appointment['AppointmentID']; ?>">
+                            <select name="status">
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="completed">Completed</option>
+                                <option value="canceled">Canceled</option>
+                            </select>
+                            <button type="submit" name="update_status">Update</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
-   <div class="box-container">
+    <h2>Manage Services</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Service ID</th>
+                <th>Service Name</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($services as $service): ?>
+                <tr>
+                    <td><?php echo $service['ServiceID']; ?></td>
+                    <td>
+                        <form method="POST" action="">
+                            <input type="hidden" name="service_id" value="<?php echo $service['ServiceID']; ?>">
+                            <input type="text" name="service_name" value="<?php echo $service['Name']; ?>" required>
+                            <input type="number" name="service_price" value="<?php echo $service['Price']; ?>" required>
+                            <input type="hidden" name="action" value="edit">
+                            <button type="submit" name="manage_service">Edit</button>
+                        </form>
+                    </td>
+                    <td>$<?php echo $service['Price']; ?></td>
+                    <td>
+                        <form method="POST" action="">
+                            <input type="hidden" name="service_id" value="<?php echo $service['ServiceID']; ?>">
+                            <input type="hidden" name="action" value="delete">
+                            <button type="submit" name="manage_service">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
-      <div class="box">
-         <h3>welcome!</h3>
-         <p><?= $fetch_profile['name']; ?></p>
-         <a href="update_profile.php" class="btn">update profile</a>
-      </div>
-
-      <div class="box">
-         <?php
-            $total_pendings = 0;
-            $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
-            $select_pendings->execute(['pending']);
-            if($select_pendings->rowCount() > 0){
-               while($fetch_pendings = $select_pendings->fetch(PDO::FETCH_ASSOC)){
-                  $total_pendings += $fetch_pendings['total_price'];
-               }
-            }
-         ?>
-         <h3><span>$</span><?= $total_pendings; ?><span>/-</span></h3>
-         <p>total pendings</p>
-         <a href="placed_orders.php" class="btn">see orders</a>
-      </div>
-
-      <div class="box">
-         <?php
-            $total_completes = 0;
-            $select_completes = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
-            $select_completes->execute(['completed']);
-            if($select_completes->rowCount() > 0){
-               while($fetch_completes = $select_completes->fetch(PDO::FETCH_ASSOC)){
-                  $total_completes += $fetch_completes['total_price'];
-               }
-            }
-         ?>
-         <h3><span>$</span><?= $total_completes; ?><span>/-</span></h3>
-         <p>completed orders</p>
-         <a href="placed_orders.php" class="btn">see orders</a>
-      </div>
-
-      <div class="box">
-         <?php
-            $select_orders = $conn->prepare("SELECT * FROM `orders`");
-            $select_orders->execute();
-            $number_of_orders = $select_orders->rowCount()
-         ?>
-         <h3><?= $number_of_orders; ?></h3>
-         <p>orders placed</p>
-         <a href="placed_orders.php" class="btn">see orders</a>
-      </div>
-
-      <div class="box">
-         <?php
-            $select_products = $conn->prepare("SELECT * FROM `products`");
-            $select_products->execute();
-            $number_of_products = $select_products->rowCount()
-         ?>
-         <h3><?= $number_of_products; ?></h3>
-         <p>products added</p>
-         <a href="products.php" class="btn">see products</a>
-      </div>
-
-      <div class="box">
-         <?php
-            $select_users = $conn->prepare("SELECT * FROM `users`");
-            $select_users->execute();
-            $number_of_users = $select_users->rowCount()
-         ?>
-         <h3><?= $number_of_users; ?></h3>
-         <p>normal users</p>
-         <a href="users_accounts.php" class="btn">see users</a>
-      </div>
-
-      <div class="box">
-         <?php
-            $select_admins = $conn->prepare("SELECT * FROM `admins`");
-            $select_admins->execute();
-            $number_of_admins = $select_admins->rowCount()
-         ?>
-         <h3><?= $number_of_admins; ?></h3>
-         <p>admin users</p>
-         <a href="admin_accounts.php" class="btn">see admins</a>
-      </div>
-
-      <div class="box">
-         <?php
-            $select_messages = $conn->prepare("SELECT * FROM `messages`");
-            $select_messages->execute();
-            $number_of_messages = $select_messages->rowCount()
-         ?>
-         <h3><?= $number_of_messages; ?></h3>
-         <p>new messages</p>
-         <a href="messagess.php" class="btn">see messages</a>
-      </div>
-
-   </div>
-
+    <h3>Add New Service</h3>
+    <form method="POST" action="">
+        <input type="text" name="new_service_name" placeholder="Service Name" required>
+        <input type="number" name="new_service_price" placeholder="Service Price" required>
+        <button type="submit" name="add_service">Add Service</button>
+    </form>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
 <script src="../js/admin_script.js"></script>
-   
+
 </body>
 </html>

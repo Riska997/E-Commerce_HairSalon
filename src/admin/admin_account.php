@@ -1,6 +1,6 @@
 <?php
+session_start(); // Start the session at the beginning
 require '../../config/db.php';
-
 
 $admin_id = $_SESSION['admin_id'] ?? null;
 
@@ -34,7 +34,6 @@ if (isset($_GET['delete'])) {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Admin Accounts</title>
-
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
    <link rel="stylesheet" href="../css/main.css">
 </head>
@@ -43,9 +42,7 @@ if (isset($_GET['delete'])) {
 <?php include '../inc/admin_header.php'; ?>
 
 <section class="accounts">
-
    <h1 class="heading">Admin Accounts</h1>
-
    <div class="box-container">
       <div class="box">
          <p>Add New Admin</p>
@@ -63,11 +60,9 @@ if (isset($_GET['delete'])) {
          <p>Admin Name: <span><?= htmlspecialchars($fetch_accounts['name']); ?></span></p>
          <div class="flex-btn">
             <a href="admin_accounts.php?delete=<?= $fetch_accounts['id']; ?>" onclick="return confirm('Delete this account?')" class="delete-btn">Delete</a>
-            <?php
-            if ($fetch_accounts['id'] == $admin_id) {
-               echo '<a href="update_profile.php" class="option-btn">Update</a>';
-            }
-            ?>
+            <?php if ($fetch_accounts['id'] == $admin_id) : ?>
+               <a href="update_profile.php" class="option-btn">Update</a>
+            <?php endif; ?>
          </div>
       </div>
       <?php
