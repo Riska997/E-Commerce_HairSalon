@@ -1,75 +1,53 @@
-/******************************************** Customer Header **********************************************************************/
-.dropdown-header {
-    display: block;
-    padding: 8px 24px;
-    margin-bottom: 0;
-    font-size: 14px; 
-    color: #918686;
-    white-space: nowrap; }
-
-/******************************************** Footer **********************************************************************/
-footer {
-    background-color: #4a0072;
-    color: white;
-    font-size:small;
-    font-weight: bolder;
-    padding: 10px 0; 
+/* Eve & Steve Salon | Shared footer (all customer pages). */
+.site-footer, footer.site-footer {
+  background: #47104c;
+  color: #ffffff;
+  padding: 43px 0 22px;
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
 }
-
-.location-link {
-    color: white; 
-    text-decoration: none; 
-    margin-right: 10px; 
+.site-footer .footer-container {
+  width: min(1160px, calc(100% - 40px));
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(180px, .7fr);
+  gap: 28px;
 }
-
-/* Social buttons */
-.social-buttons .social-icon {
-    display: flex; 
-    margin-top: 10px;
-    justify-content: flex-start;
-    color: white; 
-    font-size: 20px; 
-}
-
-/* Footer navbar styles */
-.footer-navbar {
-    list-style-type: none;  
-    padding: 0; 
-    margin: 0; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-end; 
-}
-
-.footer-navbar .nav-item {
-    margin: 5px 0; 
-}
-
-.footer-navbar .nav-link {
-    text-decoration: none; 
-    color: white; 
-}
-
-.footer-navbar .nav-link:hover {
-    text-decoration: underline; 
-}
-
-/* Back-to-top button */
+.site-footer .footer-title { margin: 0 0 13px; font: 700 23px Georgia,serif; color: #ffffff; }
+.site-footer .footer-tagline { margin: 0 0 16px; color: #eed4f1; }
+.site-footer address { margin: 0 0 12px; font-style: normal; color: #ffffff; }
+.site-footer .location-link,
+.site-footer a { color: #ffffff; text-decoration: none; }
+.site-footer a:hover, .site-footer a:focus { color: #eed4f1; text-decoration: underline; }
+.site-footer .footer-social { display: flex; flex-wrap: wrap; gap: 11px; margin: 17px 0 0; }
+.site-footer .footer-social a { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 12px; border: 1px solid rgba(255,255,255,.45); border-radius: 9px; }
+.site-footer .footer-navbar { list-style: none; padding: 0; margin: 0; display: grid; justify-items: start; gap: 7px; }
+.site-footer .footer-navbar li { margin: 0; }
+.site-footer .footer-navbar a { display: inline-block; padding: 4px 0; color: #ffffff; font-weight: 600; }
+.site-footer .footer-right h3 { margin: 0 0 14px; font: 700 18px Georgia,serif; color: #fff; }
+.site-footer .footer-bottom { width: min(1160px, calc(100% - 40px)); border-top: 1px solid rgba(255,255,255,.22); margin: 26px auto 0; padding-top: 15px; color: #eed4f1; font-size: 12px; }
 .btn-back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px; 
-    font-size: 22px;
-    padding: 10px 15px;
-    border: none;
-    background-color: #ffff; 
-    color: #4a0072;
-    border-radius: 5px; 
-    display: none; 
-    z-index: 1000; 
+  display: none;
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  padding: 6px;
+  border-radius: 50%;
+  border: 1px solid #eed4f1;
+  background: #47104c;
+  color: #ffffff;
+  font-size: 21px;
+  text-decoration: none;
 }
-
-.btn-back-to-top:hover {
-    background: #595bd1;
-    color: #9112db; 
+.btn-back-to-top:hover { background: #4a0072; color: #ffffff; }
+@media (max-width: 650px) {
+  .site-footer, footer.site-footer { padding: 34px 0 22px; }
+  .site-footer .footer-container { grid-template-columns: 1fr; gap: 28px; }
+  .site-footer .footer-bottom { margin-top: 25px; }
 }

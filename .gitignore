@@ -1,0 +1,33 @@
+# Private environment configuration
+.env
+.env.*
+!.env.example
+# Local dependencies
+/vendor/
+# Backups
+/local-backups/
+/installation-backups/
+/header-backup-*/
+/branding-backup-*/
+/homepage-header-backup-*/
+/deploy-ready-*/
+**/*.backup*
+**/*.bak
+**/*.old
+**/*.orig
+**/*.tmp
+**/*.before-*.css
+**/*header-backup*.css
+# Local uploads and temporary files
+/public/uploads/
+*.log
+*.zip
+# Windows and editor files
+Thumbs.db
+.DS_Store
+.vscode/
+/config/db.php
+/config/mail.php
+/config/*.before-*
+/css-merge-backup/
+*.backup*
