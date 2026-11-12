@@ -1,154 +1,134 @@
-# Eve & Steve Salon — Appointment Booking and Administration
+# Eve & Steve Salon
 
-A responsive, database-driven unisex salon website built with **PHP, MySQL/MariaDB, HTML, CSS, JavaScript and Bootstrap**. This project demonstrates customer-facing booking workflows and a protected, role-based administrative workspace.
+**Good Hair Style, Good Selfie**
 
-> **Portfolio demonstration:** This is an educational software project, not an official production booking service. Do not submit sensitive personal, financial or payment information. Payment processing and product checkout are not implemented.
+Eve & Steve Salon is a responsive unisex salon website where visitors can explore hair and beauty services, create a customer account, request an appointment, and follow the status of their booking. It also includes a separate workspace for authorized salon staff to manage appointments and enquiries.
 
-## Live website and source
+**[Visit the website](https://eveandstevesalon.cu.ma/)** · **[View the source code](https://github.com/Riska997/E-Commerce_HairSalon)**
 
-- **Live demonstration:** https://eveandstevesalon.cu.ma/
-- **Source code:** https://github.com/Riska997/E-Commerce_HairSalon
-- **Local development:** `http://127.0.0.1:8010/`
+> **Portfolio demonstration:** This website is a software engineering project, not an official salon booking or payment service. Please use fictional/test details when exploring it. Do not enter sensitive personal or payment information or rely on a submitted appointment as a real salon reservation.
 
-The live site already supports the customer-facing features. **The new admin functionality has been tested locally but must be deployed and verified on GoogieHost.** Gmail SMTP email delivery has been tested from the developer's computer; hosted password-reset email delivery must be tested separately.
+## What can I do on the website?
 
-## Main features
+| Feature | What it allows you to do |
+| --- | --- |
+| **Explore the salon** | Browse the homepage, featured services, About Us and contact information. |
+| **View all services** | Explore 33 services across seven categories, with descriptions and indicative prices or price ranges. |
+| **Create an account** | Register to request appointments and check their status. |
+| **Sign in** | Return to your customer account with your email address and password. |
+| **Request an appointment** | Select a service and preferred date and time. |
+| **My Appointments** | View booking references, appointment details and status updates. |
+| **Contact Us** | Send an enquiry through the website's contact form. |
+| **Password recovery** | Request a password-reset link where email recovery is enabled and functioning. |
 
-### Customer experience
-- Responsive homepage with salon carousel, service highlights, About and Contact sections.
-- Seven service categories and **33** database-backed salon services, with descriptions and prices or price ranges.
-- Customer registration, sign-in and sign-out.
-- Password visibility controls on login and registration.
-- Appointment requests with preferred date, time and service; new requests begin as **Pending**.
-- Customer appointment reference and booking-status history.
-- Contact form with database storage.
-- Password-reset flow with expiring, single-use tokens and SMTP email delivery (tested locally; verify on the deployed host before enabling publicly).
+## Customer guide
 
-### Administration (locally tested)
-- Shared `/login.php` page for customers and authorized staff; no public admin-registration route.
-- Protected `/admin/` pages using server-side role and session checks.
-- Dashboard metrics and recent appointments.
-- Appointment review, confirmation, cancellation and completion; customers see updated statuses.
-- Manager-only service management, customer directory and staff-account administration.
-- Message review and status updates.
-- Account settings including email/profile updates and password changes.
-- CSRF protection and database-backed administrative login-attempt throttling.
+### 1. Browse services without registering
 
-**Roles:** `Manager` can access all administrative features; `Staff` has access to the limited pages authorized by the application. Neither role is granted by public registration.
+1. Open the [salon homepage](https://eveandstevesalon.cu.ma/).
+2. Select **Services** to see featured options, or **All Services** for the full catalogue.
+3. Open any service category to view the available treatments, descriptions and prices.
 
-## Technologies
+You do **not** need an account just to browse services. Displayed prices are indicative; the application does not process payments.
 
-| Layer | Technologies |
-|---|---|
-| Frontend | HTML5, CSS3, JavaScript, Bootstrap |
-| Backend | PHP 8+, PDO |
-| Database | MySQL / MariaDB |
-| Authentication | PHP sessions, `password_hash()`, `password_verify()` |
-| Email | PHPMailer with authenticated SMTP (Gmail tested locally) |
-| Configuration | `vlucas/phpdotenv` and a private `.env` |
-| Tools | VS Code, XAMPP, Composer, Git, GitHub |
-| Deployment | GoogieHost / DirectAdmin, PHP and MariaDB |
+### 2. Create a customer account
 
-## Project structure
+1. Select **Register**.
+2. Enter your name, email address, phone number and a password.
+3. Confirm the password and select **Create Account**.
+4. After registration, use **Sign In** to access your account.
 
-```text
-E-Commerce_HairSalon/
-├── config/
-│   ├── db.php                  # private, ignored by Git
-│   └── mail.php                # private, ignored by Git
-├── database/
-│   └── migrations/            # apply to the appropriate database, do not web-publish
-├── public/                    # local PHP document root
-│   ├── index.php
-│   ├── booking.php
-│   ├── register.php
-│   ├── login.php
-│   ├── logout.php
-│   ├── forgot-password.php
-│   ├── my-appointments.php
-│   ├── favicon.png
-│   ├── admin/                  # nine role-protected admin pages
-│   ├── css/                    # public and admin styling
-│   ├── js/                     # client scripts
-│   └── images/                 # logo, carousel, service photos and other assets
-├── src/
-│   ├── admin/auth.php          # server-side access control
-│   └── inc/
-│       ├── admin_header.php
-│       └── footer.php
-├── scripts/                    # local CLI helpers; not web-deployed
-├── vendor/                     # Composer-installed libraries; ignored by Git
-├── .env                        # private; ignored by Git
-├── .env.example                # placeholders only
-├── .gitignore
-├── composer.json
-└── composer.lock
-```
+The password fields include a **Show/Hide** option so you can check what you typed.
 
-**Do not deploy the repository-root `.htaccess` file.** It was written for an older `public/` rewrite layout and has rules incompatible with the current GoogieHost site. For deployment, use the instructions in `GOOGIEHOST_UPLOAD_GUIDE.md`.
+**For this portfolio demo, use a test email/account and avoid submitting personal information you would not want stored.**
 
-## Local setup
+### 3. Request an appointment
 
-1. Install PHP 8+, MySQL/MariaDB (such as XAMPP), Composer and Git.
-2. Create the local `salon_db` database and apply the appropriate schema/migrations. Do **not** run the old `config/SalonDBConnection.session.sql` against an existing populated database: it describes an outdated schema.
-3. Run `composer install` in the repository root to create `vendor/`.
-4. Copy `.env.example` to `.env` and set your **own local** database and email configuration. Never commit `.env` or passwords.
-5. Ensure `config/db.php` exists and implements the project’s `db_connect()` and session helpers. It is deliberately not in the public repository because it contains environment-specific configuration.
-6. Start the local PHP server from the repository root:
+1. Select **All Services** or **Book Now**.
+2. Sign in if you have not already done so.
+3. Choose your salon service.
+4. Select your **preferred date** and **preferred time**.
+5. Select **Submit Appointment Request**.
+6. Note the appointment reference displayed on the confirmation page.
 
-   ```powershell
-   php -S 127.0.0.1:8010 -t public
-   ```
+A new request starts as **Pending**. Submitting a request does **not** automatically confirm a booking.
 
-7. Open `http://127.0.0.1:8010/`.
+### 4. Check an appointment's status
 
-### Database requirements
+1. Sign in using your customer account.
+2. Select **My Appointments**.
+3. Find the appointment using its reference number, date and service.
+4. Read its current status.
 
-The application uses the tables `customers`, `services`, `appointments`, `appointment_service`, `messages`, `admins`, `customer_password_resets` and `admin_login_attempts`, with `payments` retained in the existing schema. Before installing admin authentication on a populated database, apply **`database/migrations/004_admin_login_attempts.sql`** if its table is missing. Do not recreate or overwrite populated customer tables.
+| Status | Meaning |
+| --- | --- |
+| **Pending** | The request has been submitted and is awaiting review. |
+| **Confirmed** | An administrator has approved the request in the demonstration system. |
+| **Cancelled** | The request has been declined or cancelled. |
+| **Completed** | An administrator has marked the appointment as completed. |
 
-To create the first Manager account locally, use the CLI helper **if installed**:
+Changes made by an administrator are reflected in the customer's appointment history. The application does not currently send automatic emails for appointment approvals.
 
-```powershell
-php .\scripts\create-manager-sql.php
-```
+### 5. Send an enquiry
 
-Paste its generated SQL into the *correct* local or hosted phpMyAdmin database. Do not commit or share the temporary password or generated SQL output. The helper is not part of the public Git repository release and should not be uploaded to the website.
+1. Go to the **Contact Us** section on the homepage.
+2. Enter the requested contact details and your message.
+3. Select **Send Message**.
 
-## Deployment
+The message is saved for authorized salon staff to review. This form does not guarantee an immediate email reply.
 
-The live server is configured with `public_html/` as its document root:
+### 6. Reset a forgotten password
 
-- **Inside `public_html`:** the **contents** of local `public/` (not the `public` folder itself).
-- **Outside `public_html`:** private `.env`, `config/`, `src/` and Composer `vendor/`.
-- **Database:** created and managed through DirectAdmin/phpMyAdmin; migrations run there, not from a public URL.
+If **Forgot your password?** is available on the sign-in page:
 
-Keep the hosted `config/db.php`, `.env` and existing working `vendor/` intact during feature deployment. Back up website files and export the hosted database before changes. See the separate upload guide for every required path, upload sequence and verification step.
+1. Select the link and enter the email address registered to your customer account.
+2. Check your inbox for the password-reset email.
+3. Open the link and choose a new password before it expires.
+4. Return to **Sign In** using your new password.
 
-## Security and demo boundaries
+Password-reset email delivery has been tested locally. **Availability on the live hosting account is still subject to final deployment testing.**
 
-- Do not publish `.env`, passwords, password-reset links/tokens, SQL database exports, backups, CLI helpers or SMTP test scripts.
-- All admin endpoints must verify the authenticated role **on the server**, even when the shared login entry point is not advertised.
-- Use HTTPS and secure session cookie settings for production hosting.
-- Password reset is for customer accounts; administrative password changes occur through authorized account-management functions.
-- Do not run the old repository-root `.htaccess` on the current host.
-- Avoid using personal information on the public demo; use test data where possible.
-- This project does not send automated appointment confirmation emails, collect online payments or implement product checkout.
+## Staff and Manager guide
 
-## Current verification status
+The administration area is for **authorized salon personnel only**. Staff and Managers sign in using the normal **Sign In** page with their assigned credentials; members of the public cannot create administrator accounts.
 
-| Component | Status |
-|---|---|
-| Customer homepage, services, signup, login and booking | Working in local tests and demonstrated live |
-| Customer booking history and status updates | Tested locally |
-| Admin dashboard, status management and account login | Tested locally; hosted deployment pending |
-| Gmail SMTP authentication and test message | Successful locally |
-| Password-reset email delivery | Successful locally; full token/reuse testing still to be confirmed |
-| Hosted SMTP and admin workflow | Pending deployment testing |
+| Page | What authorized users can do | Access |
+| --- | --- | --- |
+| **Dashboard** | See appointment totals, pending requests, service counts, unread messages and recent appointments. | Manager and Staff |
+| **Appointments** | Review requests, filter by status, and confirm, cancel or complete them when that status change is permitted. | Manager and Staff |
+| **Messages** | Read contact-form enquiries, mark them as responded to, or reopen them. | Manager and Staff |
+| **Services** | Add services and edit existing service details or prices. | Manager only |
+| **Customers** | Search and view registered customer information. | Manager only |
+| **Staff** | Create Staff accounts and reset Staff passwords. | Manager only |
+| **My Account** | Update your own profile and change your password. | Manager and Staff |
 
-## Further development
+**Changing an appointment:** Open **Appointments**, find the request, choose an available action and select **Save**. The customer can then see the updated status in **My Appointments**. Completed and cancelled requests may be treated as final.
 
-Potential upgrades include email notifications on appointment confirmation, multifactor authentication for administrators, more granular staff permissions, accessibility enhancements, automated tests and an appointment-availability calendar.
+**Changing an admin password:** Open **My Account**, enter your current password and the new password, then save. Password changes are available when needed; a monthly change is not required.
 
-## License
+The admin interface has been tested locally. Deployment and verification of the new admin features on the live hosting account are still in progress.
 
-See the repository's existing `LICENSE` file.
+## Frequently asked questions
+
+**Can I view services without signing in?**  
+Yes. Sign-in is only needed to request an appointment or access your appointment history.
+
+**Does selecting Book Now confirm an appointment?**  
+No. It submits a request with a **Pending** status until an authorized administrator reviews it.
+
+**Can I make a payment or buy hair products on the site?**  
+No. Online checkout and payment processing are not implemented in this version.
+
+**Why can't I access the administration pages?**  
+They are restricted to authorized Manager and Staff accounts. A customer account does not grant administration access.
+
+**Why is a password-reset email not arriving?**  
+Check your spam folder, confirm you used your registered email, and note that live email delivery is still being verified.
+
+## About this project
+
+This portfolio project demonstrates a complete customer booking workflow and a protected administrative interface using **PHP, MySQL/MariaDB, HTML, CSS, JavaScript and Bootstrap**.
+
+The source code is available on GitHub, but the interactive PHP website must run on a PHP-enabled hosting service; GitHub Pages cannot run the backend. Local setup also requires a compatible database and private configuration, which are intentionally not published in the repository.
+
+**License:** See [LICENSE](LICENSE).
