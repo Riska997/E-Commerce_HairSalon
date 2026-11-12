@@ -1077,3 +1077,117 @@ section {
     transition: none;
   }
 }
+
+/* PASSWORD VISIBILITY CONTROLS */
+
+.reg-page .password-control {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.reg-page .password-control input {
+  width: 100%;
+  padding-right: 75px;
+}
+
+.reg-page .password-control-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--salon-purple);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.reg-page .password-control-toggle:focus-visible {
+  outline: 2px solid var(--salon-purple);
+  border-radius: 4px;
+}
+
+/* CUSTOM PASSWORD VISIBILITY */
+
+.reg-page .password-control {
+  position: relative;
+  width: 100%;
+}
+
+.reg-page .password-control input {
+  width: 100%;
+  padding-right: 78px;
+}
+
+.reg-page .password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--salon-purple);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.reg-page .password-toggle:focus-visible {
+  outline: 2px solid var(--salon-purple);
+  border-radius: 4px;
+}
+
+/* Hide Edge's built-in icon to prevent duplicate buttons */
+
+.reg-page .password-control input::-ms-reveal {
+  display: none;
+}
+
+/* SALON PASSWORD TOGGLE V3 */
+
+.reg-page .salon-password-wrap {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.reg-page .salon-password-wrap input {
+    width: 100%;
+    padding-right: 76px;
+}
+
+.reg-page .salon-password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 2;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--salon-purple);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 7px 8px;
+    cursor: pointer;
+}
+
+.reg-page .salon-password-toggle:hover {
+    background: var(--salon-lilac);
+}
+
+.reg-page .salon-password-toggle:focus-visible {
+    outline: 2px solid var(--salon-purple);
+    outline-offset: 2px;
+}
+
+.reg-page .salon-password-wrap input::-ms-reveal {
+    display: none;
+}

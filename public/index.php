@@ -861,7 +861,7 @@ if (
          CONTACT US
     ======================================= -->
 
-    <section id="contact" class="contact pb-0">
+    <section id="contact" class="contact mb-5">
 
         <div class="container">
 

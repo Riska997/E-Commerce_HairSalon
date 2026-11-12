@@ -263,6 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- LOGO TO BROWSER TAB -->
     <link rel="icon" type="image/png" href="/favicon.png">
+        <script src="/js/password-visibility.js?v=3" defer></script>
 </head>
 
 <body class="reg-page">

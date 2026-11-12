@@ -31,3 +31,5 @@ Thumbs.db
 /config/*.before-*
 /css-merge-backup/
 *.backup*
+
+/scripts/test-salon-smtp.php

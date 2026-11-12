@@ -1,0 +1,64 @@
+/* Eve & Steve Salon | Admin-only styles. No customer CSS modifications. */
+:root{--a-plum:#47104c;--a-purple:#4a0072;--a-ink:#26132b;--a-lilac:#eed4f1;--a-paper:#fff9fc;--a-line:#ead9e8;--a-muted:#6d5b6c;--a-white:#fff;--a-green:#24593c;--a-red:#a32b3c}
+*{box-sizing:border-box}
+body.salon-admin{margin:0;background:#fcfafc;color:var(--a-ink);font:16px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif}
+.salon-admin a{color:var(--a-purple)}
+.salon-admin h1,.salon-admin h2,.salon-admin h3{font-family:Georgia,serif;color:var(--a-plum);line-height:1.25}
+.salon-admin h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 .45rem}
+.salon-admin h2{font-size:1.25rem;margin:.25rem 0 1rem}
+.salon-admin .muted,.salon-admin small{color:var(--a-muted)}
+.admin-topbar{background:white;box-shadow:0 2px 13px #3a143014;border-bottom:1px solid var(--a-line)}
+.admin-bar-inner{max-width:1220px;margin:auto;padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.admin-brand{display:flex;align-items:center;gap:.55rem;font-family:Georgia,serif;font-weight:bold;text-decoration:none;font-size:1.2rem}
+.admin-brand img{width:46px;height:46px;object-fit:contain}
+.admin-brand small{display:block;font:12px/1.3 system-ui;color:var(--a-muted)}
+.admin-account{display:flex;align-items:center;gap:1rem;font-size:.9rem}.admin-account small{display:block}
+.admin-nav{border-top:1px solid var(--a-line)}.admin-links{justify-content:flex-start;padding:.45rem 1.25rem;gap:.3rem;overflow-x:auto}
+.admin-links a{white-space:nowrap;text-decoration:none;padding:.45rem .75rem;font-weight:650;border-radius:7px;font-size:.91rem}
+.admin-links a[aria-current=page],.admin-links a:hover{background:var(--a-lilac)}
+.admin-main{max-width:1220px;margin:0 auto;padding:2rem 1.25rem 4rem;min-height:70vh}
+.admin-footer{text-align:center;border-top:1px solid var(--a-line);padding:1.25rem;color:var(--a-muted);font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:1.2rem 0 2rem}
+.card{background:var(--a-white);border:1px solid var(--a-line);border-radius:13px;padding:1.25rem;box-shadow:0 9px 25px #33192b0a}
+.card.stat strong{display:block;color:var(--a-purple);font:700 2rem Georgia,serif}
+.card.stat span{font-size:.9rem;color:var(--a-muted)}
+.two-column{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.section-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.table-scroll{overflow:auto;max-width:100%;border-radius:10px;border:1px solid var(--a-line)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:#fff}th,td{padding:.8rem .8rem;text-align:left;border-bottom:1px solid #f0e6ee;vertical-align:top}th{background:#faf4f9;color:var(--a-plum);font-weight:700;white-space:nowrap}tr:last-child td{border-bottom:none}td .muted{font-size:.85rem}
+form.inline{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+form.stack{display:grid;gap:.85rem;max-width:760px}label{font-weight:650;font-size:.9rem;display:block;margin-bottom:.2rem}
+.salon-admin input:not([type=hidden]),.salon-admin select,.salon-admin textarea{width:100%;border:1px solid #d9c7d9;background:#fff;border-radius:7px;padding:.65rem .7rem;font:inherit;color:var(--a-ink)}
+.salon-admin input:focus-visible,.salon-admin select:focus-visible,.salon-admin textarea:focus-visible,.salon-admin button:focus-visible,.salon-admin a:focus-visible{outline:3px solid #b57bce;outline-offset:2px}
+.salon-admin textarea{min-height:96px;resize:vertical}.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}
+.button,.salon-admin button[type=submit]{display:inline-block;border:1px solid var(--a-purple);background:var(--a-purple);border-radius:7px;padding:.62rem 1.05rem;color:#fff;text-decoration:none;font-weight:650;cursor:pointer;font:inherit;white-space:nowrap;text-align:center}
+.button:hover,.salon-admin button[type=submit]:hover{background:var(--a-plum);color:#fff}
+.button.outline,.salon-admin button[type=submit].outline{background:white;color:var(--a-purple)}
+.button.small,.salon-admin button[type=submit].small{font-size:.85rem;padding:.4rem .75rem}
+.salon-admin button:disabled{opacity:.5;cursor:not-allowed}
+.badge{display:inline-block;padding:.18rem .55rem;border-radius:50px;font-size:.8rem;font-weight:700;background:#f2e9f2;color:var(--a-purple)}
+.badge.confirmed,.badge.completed{background:#e9f5ed;color:#206442}.badge.cancelled{background:#f9ebed;color:#99263b}
+.notice{margin-bottom:1.2rem;border:1px solid #b3d5be;background:#f2fbf4;color:#24593c;padding:.9rem 1rem;border-radius:9px}.notice.error{background:#fff0f1;color:var(--a-red);border-color:#ecc0c6}
+.help{font-size:.85rem;color:var(--a-muted)}.empty{color:var(--a-muted);padding:1.2rem;text-align:center}
+.skip-link{position:absolute;left:-10000px;top:auto}.skip-link:focus{left:12px;top:12px;background:white;padding:8px;z-index:10}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two-column{grid-template-columns:1fr}.admin-bar-inner{padding:.75rem}.admin-links{gap:.1rem}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.field-grid{grid-template-columns:1fr}.admin-main{padding:1.2rem .7rem 3rem}.admin-brand{font-size:1rem}.admin-account{width:100%;justify-content:space-between}.card{padding:.9rem}}
+
+/* Accessible Show/Hide control on all administrator password inputs */
+.salon-admin .admin-password-control{position:relative;display:block;width:100%}
+.salon-admin .admin-password-control input{padding-right:82px}
+.salon-admin .admin-password-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);z-index:2;background:white;border:0;padding:4px 8px;color:var(--a-purple);font-size:.85rem;cursor:pointer}
+.salon-admin .admin-password-control input::-ms-reveal{display:none}
+
+/* ADMIN BUTTON TEXT COLOUR FIX */
+
+.salon-admin a.button,
+.salon-admin a.button:hover,
+.salon-admin a.button:focus-visible {
+    color: #ffffff;
+}
+
+.salon-admin a.button.outline,
+.salon-admin a.button.outline:hover,
+.salon-admin a.button.outline:focus-visible {
+    color: var(--a-purple);
+}

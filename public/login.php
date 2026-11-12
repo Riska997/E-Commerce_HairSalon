@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/../src/admin/auth.php';
+if (($_SESSION['user_role'] ?? '') === 'admin') {
+    header('Location: /admin/dashboard.php', true, 303);
+    exit;
+}
 
 header('Cache-Control: no-store, private');
 
@@ -156,8 +161,9 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             )
          ) {
 
-            $error =
-               'Incorrect email address or password.';
+            if (!salon_admin_attempt_login($email, $password)) {
+               $error = 'Incorrect email address or password.';
+            }
          } else {
 
             /*
@@ -237,6 +243,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
    <!-- LOGO TO BROWSER TAB -->
    <link rel="icon" type="image/png" href="/favicon.png">
+        <script src="/js/password-visibility.js?v=3" defer></script>
 </head>
 
 <body class="reg-page">
@@ -460,7 +467,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                </div>
 
 
-               <!-- Password recovery link intentionally hidden until SMTP setup is tested. -->
+               <p class="reg-footer-note">
+    <a href="/forgot-password.php">
+        Forgot your password?
+    </a>
+</p>
 
 
 
