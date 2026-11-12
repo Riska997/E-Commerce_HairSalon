@@ -108,23 +108,6 @@ The administration area is for **authorized salon personnel only**. Staff and Ma
 
 The admin interface has been tested locally. Deployment and verification of the new admin features on the live hosting account are still in progress.
 
-## Frequently asked questions
-
-**Can I view services without signing in?**  
-Yes. Sign-in is only needed to request an appointment or access your appointment history.
-
-**Does selecting Book Now confirm an appointment?**  
-No. It submits a request with a **Pending** status until an authorized administrator reviews it.
-
-**Can I make a payment or buy hair products on the site?**  
-No. Online checkout and payment processing are not implemented in this version.
-
-**Why can't I access the administration pages?**  
-They are restricted to authorized Manager and Staff accounts. A customer account does not grant administration access.
-
-**Why is a password-reset email not arriving?**  
-Check your spam folder, confirm you used your registered email, and note that live email delivery is still being verified.
-
 ## About this project
 
 This portfolio project demonstrates a complete customer booking workflow and a protected administrative interface using **PHP, MySQL/MariaDB, HTML, CSS, JavaScript and Bootstrap**.
