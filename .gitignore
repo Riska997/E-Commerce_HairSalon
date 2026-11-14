@@ -33,3 +33,5 @@ Thumbs.db
 *.backup*
 
 /scripts/test-salon-smtp.php
+*.md
+kwcagurv_salon_db.sql
